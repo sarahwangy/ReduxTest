@@ -36,10 +36,14 @@ export default class CountUI extends Component {
 
     decrement = () => {
         // const { count } = this.state;
+
+        // 纯redux
         const { value } = this.selectNumber
         // this.setState({ count: count - value * 1 })
         // store.dispatch({ type: 'decrement', data: value * 1 })
         // store.dispatch(createDecrementAction(value * 1))
+
+        //  redux- react
         this.props.jian(value * 1)
     }
 
@@ -48,22 +52,21 @@ export default class CountUI extends Component {
         // const { count } = this.state;
         const { value } = this.selectNumber
         // const { count } = store.getState()
-
         const { count } = this.props
 
         console.log("count odd", count)
 
         if (count % 2 == 0) {
-
             //  纯react 写法
             // this.setState({ count: count + value * 1 })
 
             //  纯redux 写法
             // store.dispatch({ type: 'increment', data: value * 1 })
             // store.dispatch(createIncrementAction(value * 1))
+
+            //  react-redux
             this.props.jia(value * 1)
         }
-
     }
 
 

@@ -14,6 +14,7 @@ export const createIncrementAction = data => ({ type: INCREMENT, data })
 
 export const createDecrementAction = data => ({ type: DECREMENT, data })
 
+// 异步操作
 export const createIncrementAsyncAction = (data, time) => {
     return () => {
         setTimeout(() => {
