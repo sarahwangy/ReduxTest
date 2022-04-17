@@ -7,6 +7,8 @@ import {
     createIncrementAsyncAction
 } from '../../redux/action/action';
 
+import { connect } from 'react-redux'
+
 
 // 组件UI 不能有任何redux，所以移除。另外建立 container count， 和redux 交互
 
@@ -123,3 +125,21 @@ export default class CountUI extends Component {
         )
     }
 }
+
+
+// ----------------------------------------------------
+//  可以不用container 包裹了，自己可以引入connect 直接和redux 进行交互，取state状态
+//  使用 export default connect 连接 UI， 上面的class component 就不用default export了
+//  在APP js 里面直接引用 countUI， 把count container 忽略，这样的话，也照常可以使用。。。
+// ----------------------------------------------------
+
+// export default connect(
+//     state => ({ count: state.sum, totalPerson: state.persons }),
+//     dispatch => (
+//         {
+//             jia: (number) => dispatch(createIncrementAction(number)),
+//             jian: (number) => dispatch(createDecrementAction(number)),
+//             jiaAsync: (number, time) => dispatch((createIncrementAction(number, time)))
+//         }
+//     )
+// )(CountUI)
